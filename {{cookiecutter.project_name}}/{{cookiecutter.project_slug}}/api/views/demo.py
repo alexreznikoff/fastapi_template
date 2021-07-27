@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from {{ cookiecutter.project_slug }}.api.controllers.commmon import get_sum
+from {{ cookiecutter.project_slug }}.api.controllers.common import get_sum
 from {{ cookiecutter.project_slug }}.api.serializers.response import SumResponse
 
 demo_router = APIRouter()

@@ -13,5 +13,4 @@ class RequestIdMiddleware(BaseHTTPMiddleware):
         request_id_manager.set(request_id)
         response = await call_next(request)
         response.headers[X_REQUEST_ID] = request_id
-        request_id_manager.reset()
         return response

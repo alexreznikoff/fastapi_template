@@ -1,5 +1,4 @@
 from fastapi import APIRouter, FastAPI
-from
 from starlette.middleware import Middleware
 
 from {{ cookiecutter.project_slug }}.app.logging import configure_logging
@@ -8,6 +7,7 @@ from {{ cookiecutter.project_slug }}.api.views.demo import demo_router
 {% if cookiecutter.use_postgresql | lower == "y" %}
 from {{ cookiecutter.project_slug }}.database.db import db
 {% endif %}
+
 
 status_router = APIRouter(tags=["health_check"])
 
@@ -30,10 +30,10 @@ def create_app():
     configure_logging()
     app = FastAPI(
         title="{{ cookiecutter.project_name }}",
-        {% if cookiecutter.use_postgresql | lower == "y" %}
+        {% if cookiecutter.use_postgresql | lower == "y" -%}
         on_startup=[db_connect],
         on_shutdown=[db_disconnect],
-        {% endif %}
+        {% endif -%}
         middleware=[Middleware(RequestIdMiddleware),],
     )
     app.include_router(status_router)

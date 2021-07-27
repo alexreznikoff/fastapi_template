@@ -4,7 +4,7 @@ from pydantic import BaseSettings
 
 
 class Settings(BaseSettings):
-    PORT: int = 9950
+    PORT: int = 8000
     HOST: str = "127.0.0.1"
 
     TIMEOUT: int = 5

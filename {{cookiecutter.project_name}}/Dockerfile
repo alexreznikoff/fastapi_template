@@ -1,8 +1,8 @@
-FROM python:3.9.2-slim
+FROM python:{{ cookiecutter.python_version }}-slim
 
 RUN mkdir -p /var/log/huntflow/
 
-EXPOSE 9900
+EXPOSE 8000
 
 WORKDIR /app
 
